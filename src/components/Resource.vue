@@ -1,8 +1,9 @@
 <template>
 	<div class="resource" @click="download()">
 		<span class="material-icons">{{ getIcon() }}</span>
-		<div class="resource-info">
-			<div class="name">{{ name }}</div>
+        <h1 v-if="!isPCView()" class="resource-name-mobile">{{ name }}</h1>
+		<div class="resource-info" v-if="isPCView()">
+			<h1 class="name">{{ name }}</h1>
 			<div class="description">
                 <span v-if="attribute">{{ attribute }}</span>
 				<span v-if="resolution">分辨率 {{ resolution }}</span>
@@ -45,7 +46,10 @@ export default Vue.extend({
 				default:
 					return "help";
 			}
-		}
+        },
+        isPCView() {
+            return window.document.body.clientWidth > 1024;
+        }
 	},
 	mounted() {
 		let value: ImageFile & DocumentFile = this.val;
@@ -78,14 +82,21 @@ export default Vue.extend({
 	}
 
 	.material-icons {
-		font-size: 64px;
+        font-size: 64px;
+        
+        @media screen and (max-width: 1024px) {
+            font-size: 32px;
+        }
 	}
 
 	.resource-info {
-		margin-left: 16px;
+        margin-left: 16px;
+        position: relative;
 		.name {
 			font-weight: bold;
-			font-size: 28px;
+            font-size: 28px;
+            overflow: hidden;
+            text-overflow: ellipsis;
 		}
     }
     
@@ -100,6 +111,11 @@ export default Vue.extend({
                 content: none;
             }
         }
+    }
+
+    .resource-name-mobile {
+        font-size: 16px;
+        margin-left: 16px;
     }
 }
 </style>

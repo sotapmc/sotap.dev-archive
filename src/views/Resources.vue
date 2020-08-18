@@ -108,12 +108,12 @@ export default Vue.extend({
 				],
 				project: [
 					{
-						name: "MaterialTranslation/translations.yml",
+						name: "材料翻译 yml",
 						path: "projects/materialtranslation/translations.yml",
 						lastUpdate: "2020-08-18"
 					},
 					{
-						name: "MaterialTranslation/translations.json",
+						name: "材料翻译 json",
 						path: "projects/materialtranslation/translations.json",
 						lastUpdate: "2020-08-18"
 					}
