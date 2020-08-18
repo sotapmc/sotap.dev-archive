@@ -1,6 +1,6 @@
 <template>
 	<footer>
-		<p>Built with <span class="heart">❤</span> on <span class="vue">Vue.js</span></p>
+		<p>Built with <span class="heart">❤</span> and <span class="vue">Vue.js</span></p>
 	</footer>
 </template>
 
