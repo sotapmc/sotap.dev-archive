@@ -4,11 +4,11 @@ import './registerServiceWorker'
 import router from './router'
 import "./css/main.less";
 import Cookies from "vue-cookies";
-import Anime from 'animejs';
+import Anime from './animejs.install';
 
 Vue.use(Cookies);
+Vue.use(Anime);
 
-Vue.prototype.$anime = Anime;
 Vue.config.productionTip = false
 
 new Vue({
