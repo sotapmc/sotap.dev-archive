@@ -23,3 +23,19 @@ html {
 		background-color: transparent;
 	}
 }
+
+.inner-content {
+	a {
+		text-decoration: none;
+		color: white;
+		border-bottom: 1px solid white;
+		transition: all .2s ease;
+		position: relative;
+		display: inline-block;
+
+		&:hover {
+			border-bottom-color: @yellow;
+			color: @yellow;
+		}
+	}
+}
