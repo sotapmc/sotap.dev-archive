@@ -10,6 +10,7 @@
 			<a target="_blank" href="//docs.sotap.dev">文档</a>
 			<router-link to="/resources">资源<Badge class="new-badge" color="white" backgroundColor="#e53935" fontSize="10px">new!</Badge></router-link>
 			<router-link to="/about">关于</router-link>
+			<router-link to="/agreement">协议</router-link>
 		</div>
 	</div>
 </template>
