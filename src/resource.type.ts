@@ -17,6 +17,6 @@ interface DocumentFile extends CommonFile {
 interface CommonFile {
     name: string;
     path: string;
-    lastUpdate: string;
+    lastUpdate?: string;
     format: string;
 }
