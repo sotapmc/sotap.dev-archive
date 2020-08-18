@@ -8,8 +8,7 @@
 			<a target="_blank" href="//sotap.org">官网</a>
 			<a target="_blank" href="//github.com/sotapmc">GitHub</a>
 			<a target="_blank" href="//docs.sotap.dev">文档</a>
-			<a target="_blank" href="//blog.sotap.org">博客</a>
-			<a target="_blank" href="//wiki.sotap.org">Wiki</a>
+			<router-link to="/about">关于</router-link>
 			<router-link to="/">资源<Badge class="new-badge" color="white" backgroundColor="#e53935" fontSize="10px">new!</Badge></router-link>
 		</div>
 	</div>
