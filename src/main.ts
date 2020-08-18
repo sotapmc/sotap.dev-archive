@@ -5,6 +5,7 @@ import router from './router'
 import "./css/main.less";
 import Cookies from "vue-cookies";
 import Anime from './animejs.install';
+import "./resource.type";
 
 Vue.use(Cookies);
 Vue.use(Anime);
