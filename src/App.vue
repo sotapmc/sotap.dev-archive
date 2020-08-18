@@ -48,7 +48,6 @@ export default Vue.extend({
 		if (this.$cookies.get("animation") == "no") {
 			await this.sleep(200);
 			this.showBackground = true;
-			if (this.$route.name == "Home") this.showSecond = true;
 			this.animateEnd = true;
 		} else {
 			this.showFirst = true;
@@ -87,8 +86,12 @@ export default Vue.extend({
 		Navbar: () => import("@/components/Navbar.vue")
 	},
 	watch: {
-		$route(v) {
+		async $route(v) {
+			this.showBackground = false;
+			await this.sleep(100);
 			this.background = v.meta.background ?? this.background;
+			await this.sleep(100);
+			this.showBackground = true;
 		}
 	}
 });
