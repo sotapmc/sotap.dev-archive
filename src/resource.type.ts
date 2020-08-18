@@ -1,26 +1,22 @@
 interface Resources {
-    images: Array<Image>;
-    docs: Array<Document>;
+    images: Array<ImageFile>;
+    docs: Array<DocumentFile>;
     server: Array<CommonFile>;
     project: Array<CommonFile>;
 }
 
-interface Image {
-	name: string;
-	path: string;
+interface ImageFile extends CommonFile {
 	resolution: string;
-	transparent?: boolean;
+    transparent?: boolean;
 }
 
-interface Document {
-    name: string;
-    path: string;
+interface DocumentFile extends CommonFile {
     cjk: number;
-    lastUpdate: string;
 }
 
 interface CommonFile {
     name: string;
     path: string;
     lastUpdate: string;
+    format: string;
 }
