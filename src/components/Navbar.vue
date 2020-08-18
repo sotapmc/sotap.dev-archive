@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { isPCView } from "@/functions";
 export default Vue.extend({
 	data() {
 		return {
@@ -27,11 +28,11 @@ export default Vue.extend({
 		Badge: () => import("./Badge.vue")
 	},
 	mounted() {
-		if (document.body.clientWidth >= 1024) {
+		if (isPCView()) {
 			this.showContent = true;
 		}
 		document.addEventListener("click", e => {
-			if (document.body.clientWidth >= 1024) {
+			if (isPCView()) {
 				return false;
 			}
 			let el = e.srcElement as HTMLElement;
@@ -44,7 +45,7 @@ export default Vue.extend({
 		});
 		let that = this;
 		window.onresize = () => {
-			if (document.body.clientWidth >= 1024) {
+			if (isPCView()) {
 				this.showContent = true;
 			} else {
 				this.showContent = false;

@@ -17,6 +17,8 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { isPCView } from "@/functions";
+
 export default Vue.extend({
 	props: ["val", "type"],
 	data() {
@@ -47,9 +49,7 @@ export default Vue.extend({
 					return "help";
 			}
         },
-        isPCView() {
-            return window.document.body.clientWidth > 1024;
-        }
+        isPCView,
 	},
 	mounted() {
 		let value: ImageFile & DocumentFile = this.val;
