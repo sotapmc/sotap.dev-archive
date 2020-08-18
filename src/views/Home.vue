@@ -39,6 +39,7 @@ export default Vue.extend({
 	position: relative;
 	display: inline-block;
 	overflow: hidden;
+	z-index: -1;
 
 	.hero {
 		transform-origin: 0 100%;
