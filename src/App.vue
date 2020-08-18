@@ -2,7 +2,7 @@
 	<div class="app">
 		<div class="center-container">
 			<transition name="fade">
-				<img v-if="showBackground" class="background" src="https://i.loli.net/2020/08/18/mUuXRFbSK7wlZg6.png" />
+				<img v-if="showBackground" class="background" :src="background" />
 			</transition>
 			<div class="center-box">
 				<transition name="fade">
@@ -36,7 +36,7 @@ export default Vue.extend({
 			showThird: false,
 			showBackground: false,
 			animateEnd: false,
-			background: ""
+			background: "https://i.loli.net/2020/08/18/mUuXRFbSK7wlZg6.png"
 		};
 	},
 	async mounted() {
@@ -52,10 +52,8 @@ export default Vue.extend({
 		this.showSecond = true;
 		await this.sleep(1500);
 		this.showThird = true;
-		await this.sleep(2000);
-		this.showSecond = false;
-		this.showThird = false;
-		await this.sleep(500);
+    await this.sleep(2000);
+    this.showThird = false;
 		this.showBackground = true;
 		await this.sleep(500);
 		this.animateEnd = true;
