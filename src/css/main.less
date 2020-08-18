@@ -1,0 +1,25 @@
+@import "./lib.less";
+
+body {
+	font-family: "Poppins", "微软雅黑", sans-serif;
+	margin: 0;
+	color: rgb(38, 39, 71);
+}
+
+body,
+html {
+	height: 100%;
+}
+
+.common-button-hover {
+	transform: scale(1.2);
+	color: @yellow;
+	background-color: black;
+}
+
+* {
+	&::selection {
+		color: transparent;
+		background-color: transparent;
+	}
+}
