@@ -129,10 +129,6 @@ export default Vue.extend({
 	text-align: center;
 	box-sizing: content-box;
 	padding: 16px;
-
-	> h1 {
-		color: black;
-	}
 }
 
 .special {
