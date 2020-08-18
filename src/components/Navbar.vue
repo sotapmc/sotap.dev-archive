@@ -1,6 +1,6 @@
 <template>
 	<div class="nav-bar">
-		<div class="nav-logo">
+		<div class="nav-logo" @click="$router.push({name: 'Home'})">
 			<img class="nav-logo-image" src="@/assets/logo.svg" draggable="false" width="32" />
 			<span class="nav-logo-text">SoTap <span class="nav-logo-text-variant">Dev</span></span>
 		</div>
@@ -129,7 +129,7 @@ export default Vue.extend({
 
 		display: inline-flex;
 		align-items: center;
-		cursor: default;
+		cursor: pointer;
 	}
 }
 
