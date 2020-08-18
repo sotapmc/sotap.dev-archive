@@ -4,7 +4,7 @@
 			<img class="nav-logo-image" src="@/assets/logo.svg" draggable="false" width="32" />
 			<span class="nav-logo-text">SoTap <span class="nav-logo-text-variant">Dev</span></span>
 		</div>
-		<div class="nav-content">
+		<div v-if="showContent" ref="content" class="nav-content">
 			<a target="_blank" href="//sotap.org">官网</a>
 			<a target="_blank" href="//github.com/sotapmc">GitHub</a>
 			<a target="_blank" href="//docs.sotap.dev">文档</a>
@@ -18,8 +18,39 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
+	data() {
+		return {
+			showContent: false,
+			clientWidth: 0
+		};
+	},
 	components: {
 		Badge: () => import("./Badge.vue")
+	},
+	mounted() {
+		if (document.body.clientWidth >= 1024) {
+			this.showContent = true;
+		}
+		document.addEventListener("click", e => {
+			if (document.body.clientWidth >= 1024) {
+				return false;
+			}
+			let el = e.srcElement as HTMLElement;
+			let classList = el.classList;
+			if (classList.contains("nav-logo-text") || classList.contains("nav-bar") || classList.contains("nav-logo-image")) {
+				this.showContent = !this.showContent;
+			} else {
+				this.showContent = false;
+			}
+		});
+		let that = this;
+		window.onresize = () => {
+			if (document.body.clientWidth >= 1024) {
+				this.showContent = true;
+			} else {
+				this.showContent = false;
+			}
+		};
 	}
 });
 </script>
@@ -30,12 +61,22 @@ export default Vue.extend({
 	top: 0;
 	width: 100%;
 	padding: 16px;
-	display: inline-flex;
-	align-items: center;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+
+	@media screen and (min-width: 1024px) {
+		display: inline-flex;
+		align-items: center;
+	}
 
 	.nav-content {
 		margin-left: 32px;
 		font-size: 18px;
+
+		@media screen and (max-width: 1024px) {
+			display: grid;
+			margin-left: -16px;
+		}
 
 		a {
 			position: relative;
@@ -47,25 +88,27 @@ export default Vue.extend({
 			padding-top: 0.8rem;
 			padding-bottom: 1rem;
 
-			&:hover {
-				&::after {
-					opacity: 1;
+			@media screen and (min-width: 1024px) {
+				&:hover {
+					&::after {
+						opacity: 1;
+					}
 				}
-			}
 
-			&::after {
-				position: absolute;
-				bottom: 18px;
-				left: 0;
-				right: 0;
-				width: 60%;
-				content: "";
-				height: 6px;
-				background: @yellow;
-				margin: 0 auto;
-				z-index: -1;
-				opacity: 0;
-				transition: opacity 0.2s ease;
+				&::after {
+					position: absolute;
+					bottom: 18px;
+					left: 0;
+					right: 0;
+					width: 60%;
+					content: "";
+					height: 6px;
+					background: @yellow;
+					margin: 0 auto;
+					z-index: -1;
+					opacity: 0;
+					transition: opacity 0.2s ease;
+				}
 			}
 		}
 	}
@@ -91,8 +134,10 @@ export default Vue.extend({
 }
 
 .new-badge {
-	position: absolute;
-	top: 8px;
-	right: -8px;
+	@media screen and (min-width: 1024px) {
+		position: absolute;
+		top: 8px;
+		right: -8px;
+	}
 }
 </style>
