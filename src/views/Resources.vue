@@ -141,6 +141,20 @@ export default Vue.extend({
 	},
 	methods: {
 		isPCView
+	},
+	beforeRouteEnter(to, from, next) {
+		if (Vue.$cookies.get("agreement") != "yes") {
+			if (
+				confirm("我已同意且知悉位于 https://sotap.dev/agreement 下的协议。")
+			) {
+				Vue.$cookies.set("agreement", "yes")
+				next();
+			} else {
+				next(from.path);
+			}
+		} else {
+			next();
+		}
 	}
 });
 </script>
