@@ -1,5 +1,6 @@
 <template>
 	<div class="home">
+		<div class="hero-text">
 		<span class="hero-wrapper">
 			<h1 class="hero">Build Our World Together.</h1>
 		</span>
@@ -7,11 +8,12 @@
 			一起造<ruby>轮<rt>lún</rt>子<rt>zi</rt></ruby
 			>让世界变得更好吧
 		</p>
-		<p class="links">
+		</div>
+		<!--<p class="links">
 			<a target="_blank" href="//github.com/sotapmc/sotapmc.github.io/issues">为该页面提建议</a>
 			<router-link to="/about">关于 SoTap Dev</router-link>
 			<a target="_blank" href="https://i.loli.net/2020/08/18/mUuXRFbSK7wlZg6.png">下载背景图片</a>
-		</p>
+		</p>-->
 	</div>
 </template>
 
@@ -74,6 +76,10 @@ h1 {
 .links {
 	font-size: 16px;
 	letter-spacing: 0;
+
+	@media screen and (max-width: 1024px){
+		display: none;
+	}
 
 	a {
 		display: inline-block;
