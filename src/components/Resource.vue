@@ -1,9 +1,9 @@
 <template>
 	<div class="resource" @click="download()">
 		<span class="material-icons">{{ getIcon() }}</span>
-        <h1 v-if="!isPCView()" class="resource-name-mobile">{{ name }}</h1>
+        <div v-if="!isPCView()" class="resource-name-mobile">{{ name }}</div>
 		<div class="resource-info" v-if="isPCView()">
-			<h1 class="name">{{ name }}</h1>
+			<div class="name">{{ name }}</div>
 			<div class="description">
                 <span v-if="attribute">{{ attribute }}</span>
 				<span v-if="resolution">分辨率 {{ resolution }}</span>
@@ -71,8 +71,8 @@ export default Vue.extend({
 	border-radius: 2px;
 	border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
-	margin-top: 8px;
-	margin-bottom: 8px;
+	margin-top: 16px;
+	margin-bottom: 16px;
 	padding: 8px;
 	transition: all 0.2s ease;
     cursor: pointer;
