@@ -3,6 +3,9 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import "./css/main.less";
+import Cookies from "vue-cookies";
+
+Vue.use(Cookies);
 
 Vue.config.productionTip = false
 
