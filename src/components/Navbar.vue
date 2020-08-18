@@ -9,7 +9,7 @@
 			<a target="_blank" href="//github.com/sotapmc">GitHub</a>
 			<a target="_blank" href="//docs.sotap.dev">文档</a>
 			<router-link to="/about">关于</router-link>
-			<router-link to="/">资源<Badge class="new-badge" color="white" backgroundColor="#e53935" fontSize="10px">new!</Badge></router-link>
+			<router-link to="/resources">资源<Badge class="new-badge" color="white" backgroundColor="#e53935" fontSize="10px">new!</Badge></router-link>
 		</div>
 	</div>
 </template>

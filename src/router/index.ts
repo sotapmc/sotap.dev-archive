@@ -20,6 +20,14 @@ const routes = [
     meta: {
       background: "https://i.loli.net/2020/08/18/ubornU6DxRZgCaw.png"
     }
+  },
+  {
+    path: "/resources",
+    name: "Resources",
+    component: () => import("@/views/Resources.vue"),
+    meta: {
+      background: "https://i.loli.net/2020/08/18/4z3vWocTqkNGXJE.jpg"
+    }
   }
 ]
 
