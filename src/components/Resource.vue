@@ -1,11 +1,11 @@
 <template>
 	<div class="resource" @click="download()">
 		<span class="material-icons">{{ getIcon() }}</span>
-        <div v-if="!isPCView()" class="resource-name-mobile">{{ name }}</div>
+		<div v-if="!isPCView()" class="resource-name-mobile">{{ name }}</div>
 		<div class="resource-info" v-if="isPCView()">
 			<div class="name">{{ name }}</div>
 			<div class="description">
-                <span v-if="attribute">{{ attribute }}</span>
+				<span v-if="attribute">{{ attribute }}</span>
 				<span v-if="resolution">分辨率 {{ resolution }}</span>
 				<span v-if="transparent">透明背景</span>
 				<span v-if="cjk > 0">共计 {{ cjk }} 汉字</span>
@@ -18,6 +18,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { isPCView } from "@/functions";
+import $ from "jquery";
 
 export default Vue.extend({
 	props: ["val", "type"],
@@ -29,12 +30,25 @@ export default Vue.extend({
 			resolution: "",
 			transparent: false,
 			cjk: 0,
-            lastUpdate: "",
-            attribute: ""
+			lastUpdate: "",
+			attribute: ""
 		};
 	},
 	methods: {
-		download() {},
+		download() {
+			$.ajax({
+				url: "https://static.sotap.dev",
+				dataType: "text",
+				type: "GET",
+				complete: e => {
+					console.log(e);
+					if (e.statusText == "error") {
+						this.https = false;
+					}
+					window.open((this.https ? "https://static.sotap.dev/" : "	https://sotapstatic-1253679544.cos.ap-hongkong.myqcloud.com/") + this.path);
+				}
+			});
+		},
 		getIcon() {
 			switch (this.type) {
 				case "images":
@@ -48,8 +62,8 @@ export default Vue.extend({
 				default:
 					return "help";
 			}
-        },
-        isPCView,
+		},
+		isPCView
 	},
 	mounted() {
 		let value: ImageFile & DocumentFile = this.val;
@@ -58,8 +72,8 @@ export default Vue.extend({
 		this.resolution = value.resolution;
 		this.transparent = value.transparent ? true : false;
 		this.cjk = value.cjk;
-        this.lastUpdate = value.lastUpdate;
-        this.attribute = this.path.substr(this.path.lastIndexOf(".") + 1).toUpperCase();
+		this.lastUpdate = value.lastUpdate;
+		this.attribute = this.path.substr(this.path.lastIndexOf(".") + 1).toUpperCase();
 	}
 });
 </script>
@@ -70,52 +84,51 @@ export default Vue.extend({
 	align-items: center;
 	border-radius: 2px;
 	border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
+	color: white;
 	margin-top: 16px;
 	margin-bottom: 16px;
 	padding: 8px;
 	transition: all 0.2s ease;
-    cursor: pointer;
-    
+	cursor: pointer;
+
 	&:hover {
 		border-color: white;
 	}
 
 	.material-icons {
-        font-size: 64px;
-        
-        @media screen and (max-width: 1024px) {
-            font-size: 32px;
-        }
+		font-size: 64px;
+
+		@media screen and (max-width: 1024px) {
+			font-size: 32px;
+		}
 	}
 
 	.resource-info {
-        margin-left: 16px;
-        position: relative;
+		margin-left: 16px;
+		position: relative;
 		.name {
 			font-weight: bold;
-            font-size: 28px;
-            overflow: hidden;
-            text-overflow: ellipsis;
+			font-size: 28px;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
-    }
-    
-    .description {
-        span {
-            &::before {
-                content: ", ";
-            }
-            
+	}
 
-            &:first-child::before {
-                content: none;
-            }
-        }
-    }
+	.description {
+		span {
+			&::before {
+				content: ", ";
+			}
 
-    .resource-name-mobile {
-        font-size: 16px;
-        margin-left: 16px;
-    }
+			&:first-child::before {
+				content: none;
+			}
+		}
+	}
+
+	.resource-name-mobile {
+		font-size: 16px;
+		margin-left: 16px;
+	}
 }
 </style>
