@@ -1,6 +1,7 @@
 <template>
 	<div class="app">
 		<div class="center-container">
+			<Navbar />
 			<transition name="fade">
 				<img v-if="showBackground" class="background" :src="background" />
 			</transition>
@@ -16,11 +17,13 @@
 				</transition>
 				<transition name="fade">
 					<div class="inner-content" v-if="animateEnd">
-						<router-view />
+						<transition name="fade">
+							<router-view />
+						</transition>
 					</div>
 				</transition>
 			</div>
-      <Footer />
+			<Footer />
 		</div>
 	</div>
 </template>
@@ -41,8 +44,9 @@ export default Vue.extend({
 	},
 	async mounted() {
 		if (this.$cookies.get("animation") == "no") {
-      await this.sleep(200);
-      this.showBackground = true;
+			await this.sleep(200);
+			this.showBackground = true;
+			this.showSecond = true;
 			this.animateEnd = true;
 		} else {
 			this.showFirst = true;
@@ -76,11 +80,12 @@ export default Vue.extend({
 		}
 	},
 	components: {
-		Footer: () => import("@/components/Footer.vue")
-  },
-  beforeRouteUpdate(to, from, next) {
-    this.background = to.meta.background;
-  }
+		Footer: () => import("@/components/Footer.vue"),
+		Navbar: () => import("@/components/Navbar.vue")
+	},
+	beforeRouteUpdate(to, from, next) {
+		this.background = to.meta.background;
+	}
 });
 </script>
 
@@ -116,6 +121,10 @@ export default Vue.extend({
 	text-align: center;
 	box-sizing: content-box;
 	padding: 16px;
+
+	> h1 {
+		color: black;
+	}
 }
 
 .fade-enter-active,
@@ -142,9 +151,5 @@ export default Vue.extend({
 
 .special:hover {
 	.common-button-hover;
-}
-
-.inner-content {
-	color: white;
 }
 </style>
