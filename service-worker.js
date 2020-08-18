@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.094adc4f2eefb3730645c28b33551b9c.js"
+  "/precache-manifest.196c3e36324a54b8e049f25b50335456.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "sotap.dev"});
