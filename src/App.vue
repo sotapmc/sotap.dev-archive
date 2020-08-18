@@ -1,7 +1,9 @@
 <template>
 	<div class="app">
 		<div class="center-container">
-			<Navbar />
+			<transition name="fade">
+				<Navbar v-if="animateEnd" />
+			</transition>
 			<transition name="fade">
 				<img v-if="showBackground" class="background" :src="background" />
 			</transition>
