@@ -16,12 +16,12 @@
 				</transition>
 				<transition name="fade">
 					<div class="inner-content" v-if="animateEnd">
-						<router-view/>
+						<router-view />
 					</div>
 				</transition>
 			</div>
 		</div>
-    <footer/>
+		<footer />
 	</div>
 </template>
 
@@ -31,7 +31,7 @@ export default Vue.extend({
 	data() {
 		return {
 			titleText: "嘿，",
-			showFirst: true,
+			showFirst: false,
 			showSecond: false,
 			showThird: false,
 			showBackground: false,
@@ -40,23 +40,31 @@ export default Vue.extend({
 		};
 	},
 	async mounted() {
-		this.showFirst = true;
-		await this.sleep(900);
-		this.showFirst = false;
-		this.titleText = "欢迎来到";
-		await this.sleep(900);
-		this.showFirst = true;
-		await this.sleep(1000);
-		this.showFirst = false;
-		await this.sleep(500);
-		this.showSecond = true;
-		await this.sleep(1500);
-		this.showThird = true;
-    await this.sleep(2000);
-    this.showThird = false;
-		this.showBackground = true;
-		await this.sleep(500);
-		this.animateEnd = true;
+		if (this.$cookies.get("animation") == "no") {
+      await this.sleep(200);
+      this.showBackground = true;
+			this.animateEnd = true;
+		} else {
+			this.showFirst = true;
+			await this.sleep(900);
+			this.showFirst = false;
+			this.titleText = "欢迎来到";
+			await this.sleep(900);
+			this.showFirst = true;
+			await this.sleep(1000);
+			this.showFirst = false;
+			await this.sleep(500);
+			this.showSecond = true;
+			await this.sleep(1500);
+			this.showThird = true;
+			await this.sleep(2000);
+			this.showThird = false;
+			this.showBackground = true;
+			await this.sleep(500);
+			this.animateEnd = true;
+			this.$cookies.config("30d");
+			this.$cookies.set("animation", "no");
+		}
 	},
 	methods: {
 		sleep(time: number) {
@@ -66,10 +74,10 @@ export default Vue.extend({
 				}, time);
 			});
 		}
-  },
-  components: {
-    Footer: () => import("@/components/Footer.vue")
-  }
+	},
+	components: {
+		Footer: () => import("@/components/Footer.vue")
+	}
 });
 </script>
 
