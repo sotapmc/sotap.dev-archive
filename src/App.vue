@@ -19,7 +19,7 @@
 				</transition>
 				<transition name="fade">
 					<div class="inner-content" v-if="animateEnd">
-						<transition name="fade">
+						<transition name="fade" mode="out-in">
 							<router-view />
 						</transition>
 					</div>
