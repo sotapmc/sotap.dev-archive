@@ -20,8 +20,8 @@
 					</div>
 				</transition>
 			</div>
+      <Footer />
 		</div>
-		<footer />
 	</div>
 </template>
 
@@ -77,7 +77,10 @@ export default Vue.extend({
 	},
 	components: {
 		Footer: () => import("@/components/Footer.vue")
-	}
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.background = to.meta.background;
+  }
 });
 </script>
 
