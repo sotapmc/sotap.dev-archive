@@ -63,6 +63,7 @@ export default Vue.extend({
 	padding: 16px;
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
+	z-index: 999;
 
 	@media screen and (min-width: 1024px) {
 		display: inline-flex;
