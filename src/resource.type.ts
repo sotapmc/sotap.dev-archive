@@ -12,6 +12,7 @@ interface ImageFile extends CommonFile {
 
 interface DocumentFile extends CommonFile {
     cjk: number;
+    lastUpdate: string;
 }
 
 interface CommonFile {
