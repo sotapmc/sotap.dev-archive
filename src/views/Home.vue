@@ -7,6 +7,11 @@
 			一起造<ruby>轮<rt>lún</rt>子<rt>zi</rt></ruby
 			>让世界变得更好吧
 		</p>
+		<p class="links">
+			<a target="_blank" href="//github.com/sotapmc/sotapmc.github.io/issues">为该页面提建议</a>
+			<router-link to="/about">关于 SoTap Dev</router-link>
+			<a target="_blank" href="https://i.loli.net/2020/08/18/mUuXRFbSK7wlZg6.png">下载背景图片</a>
+		</p>
 	</div>
 </template>
 
@@ -64,6 +69,41 @@ h1 {
 	}
 	margin-top: 16px;
 	margin-bottom: 16px;
+}
+
+.links {
+	font-size: 16px;
+	letter-spacing: 0;
+
+	a {
+		display: inline-block;
+		border: 1px solid white;
+		border-radius: 4px;
+		padding-left: 8px;
+		padding-right: 8px;
+		padding-top: 4px;
+		padding-bottom: 4px;
+		color: white;
+		text-decoration: none;
+		margin-left: 16px;
+		margin-right: 16px;
+		transition: all .2s ease;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&:hover {
+			background-color: @yellow;
+			border-color: @yellow;
+			color: black;
+			transform: translateY(-15%);
+		}
+	}
 }
 
 @keyframes wink {
