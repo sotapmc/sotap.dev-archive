@@ -1,16 +1,19 @@
 <template>
 	<div class="resources">
 		<h1>资源</h1>
-		<p>以下列出的所有资源在使用时必须注明来源为 SoTap，如有条件请指向本链接（https://sotap.dev/resources）。</p>
+		<small>单击即可下载</small>
+		<p>以下列出的所有资源在使用时必须注明来源为 SoTap，如有条件请指向本站链接。{{ isPCView() ? "" : "请使用电脑访问以查看文件完整信息。"}}</p>
+		<p>特别提示：如果您因为某些原因需要使用 SoTap Logo 源文件进行二次创作，请联系我们取得授权。联系方式可查看<router-link to="/contact">这里</router-link>。</p>
 		<div v-for="(k, i) in Object.keys(resources)" :key="i">
-            <h3>{{ namedict[k] }}</h3>              
-            <Resource v-for="(x, y) in resources[k]" :val="x" :key="y" :type="k"/>
+			<h3>{{ namedict[k] }}</h3>
+			<Resource v-for="(x, y) in resources[k]" :val="x" :key="y" :type="k" />
 		</div>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import { isPCView } from "@/functions";
 
 export default Vue.extend({
 	data() {
@@ -97,7 +100,13 @@ export default Vue.extend({
 						path: "documents/关于近日SoTapxEBS联动纠纷事件始末及其后续的说明.docx",
 						cjk: 7780,
 						lastUpdate: "2020-08-16"
-					}
+					},
+					 {
+						 name: "7.24 特大服务器纠纷事件消息记录整理",
+						 path: "documents/7.24特大服务器撕逼事件消息记录整理.txt",
+						 cjk: 0,
+						 lastUpdate: "2019-07-24"
+					 }
 				],
 				server: [
 					{
@@ -118,17 +127,36 @@ export default Vue.extend({
 						lastUpdate: "2020-08-18"
 					}
 				]
-            } as Resources,
-            namedict: {
-                images: "图片",
-                docs: "文档归档",
-                server: "服务器相关",
-                project: "项目文件"
-            }
+			} as Resources,
+			namedict: {
+				images: "图片",
+				docs: "文档归档",
+				server: "服务器相关",
+				project: "项目文件"
+			}
 		};
 	},
 	components: {
 		Resource: () => import("@/components/Resource.vue")
+	},
+	methods: {
+		isPCView
+	},
+	mounted() {
+		let that = this;
+		let origin = window.document.body.clientWidth;
+		window.onresize = () => {
+			let current = window.document.body.clientWidth;
+			if (origin < 1024) {
+				if (current >= 1024) {
+					this.$router.go(0);
+				}
+			} else {
+				if (current < 1024) {
+					this.$router.go(0);
+				}
+			}
+		}
 	}
 });
 </script>
@@ -137,5 +165,6 @@ export default Vue.extend({
 .resources {
 	text-align: left;
 	padding-top: 48px;
+	padding-bottom: 32px;
 }
 </style>
