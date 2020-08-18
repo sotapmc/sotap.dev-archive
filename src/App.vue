@@ -5,7 +5,8 @@
 				<Navbar v-if="animateEnd" />
 			</transition>
 			<transition name="fade">
-				<img v-if="showBackground" class="background" :src="background" />
+				<img v-if="showBackground && $route.name == 'Home'" class="background" :src="background"/>
+				<div v-if="showBackground && $route.name != 'Home'" :style="'background-image: linear-gradient(to top, #000 1%, rgba(0, 0, 0, 0)), url(' + background + ')'" class="background"/>
 			</transition>
 			<div class="center-box">
 				<transition name="fade">
@@ -121,6 +122,9 @@ export default Vue.extend({
 	height: 100%;
 	z-index: -1;
 	object-fit: cover;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .center-box {
