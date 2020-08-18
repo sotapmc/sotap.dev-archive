@@ -1,5 +1,5 @@
 <template>
-    <span class="badge" :style="'color:' + color + ';background-color:' + backgroundColor + ';'">
+    <span class="badge" :style="'color:' + color + ';background-color:' + backgroundColor + ';font-size:' + fontSize + ';'">
         <slot/>
     </span>
 </template>
@@ -7,7 +7,7 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-    props: ["color", "backgroundColor"]
+    props: ["color", "backgroundColor", "fontSize"]
 });
 </script>
 
@@ -19,7 +19,6 @@ export default Vue.extend({
     border-radius: 4px;
     margin-left: 8px;
     margin-right: 8px;
-    font-size: 15px;
     font-family: "Consolas", 'Courier New', Courier, monospace;
 }
 </style>
