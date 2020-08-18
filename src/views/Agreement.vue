@@ -28,8 +28,6 @@
         <p>亦或者是你有一些有价值的文件（必须是对于整个 SoTap 来说有价值）想要提交，也可以按照相同的方式处理。</p>
         <h2>我发现了一些问题，该如何提出？</h2>
         <p>什么问题？如果是该网站的问题，可以前往 <a target="_blank" href="//github.com/sotapmc/sotapmc.github.io/issues">Issues</a> 提出。如果不是网站的问题，或者有话要说，或者不想用 Issues，可以用其他方式联系我们，参见<router-link to="/contact">联系方式</router-link>。</p>
-        <h2>为什么背景图以下就是黑的，这是 Bug 吗？</h2>
-        <p><del>这是特性。</del>并不是，这实际上是一种设计。当然没有嘲讽你看不出这是一种设计的意思。只是作者比较懒，加上看上去似乎也没那么违和，索性就这样放着了。如果你觉得不太好，可以来<a target="_blank" href="//github.com/sotapmc/sotapmc.github.io">修修看</a>。</p>
     </div>
 </template>
 
