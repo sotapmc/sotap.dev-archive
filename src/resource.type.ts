@@ -19,5 +19,4 @@ interface CommonFile {
     name: string;
     path: string;
     lastUpdate?: string;
-    format: string;
 }
