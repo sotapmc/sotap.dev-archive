@@ -12,6 +12,14 @@ const routes = [
     meta: {
       background: "https://i.loli.net/2020/08/18/mUuXRFbSK7wlZg6.png"
     }
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: () => import("@/views/About.vue"),
+    meta: {
+      background: "https://i.loli.net/2020/08/18/ubornU6DxRZgCaw.png"
+    }
   }
 ]
 
