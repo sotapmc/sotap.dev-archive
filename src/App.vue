@@ -41,7 +41,7 @@ export default Vue.extend({
 			showThird: false,
 			showBackground: false,
 			animateEnd: false,
-			background: "https://i.loli.net/2020/08/18/mUuXRFbSK7wlZg6.png"
+			background: "https://sotapstatic-1253679544.cos.ap-hongkong.myqcloud.com/img/2020-03-23_16.02.02.jpg"
 		};
 	},
 	async mounted() {
