@@ -8,14 +8,3 @@
         <p>如果您喜欢，欢迎前往我们的<a target="_blank" href="//github.com/sotapmc/sotapmc.github.io">项目</a>点亮 Star ★ 支持我们。</p>
     </div>
 </template>
-
-<style lang="less" scoped>
-h1 {
-    font-size: 48px;
-}
-
-p {
-    line-height: 1.5;
-    font-size: 20px;
-}
-</style>

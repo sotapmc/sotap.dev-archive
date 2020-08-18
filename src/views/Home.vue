@@ -64,11 +64,11 @@ p {
 
 h1 {
 	@media screen and (min-width: 1024px) {
-		font-size: 72px;
+		font-size: 72px !important;
 	}
 
 	@media screen and (max-width: 1024px) {
-		font-size: 56px;
+		font-size: 56px !important;
 	}
 	margin-top: 16px;
 	margin-bottom: 16px;
