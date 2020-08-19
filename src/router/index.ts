@@ -36,6 +36,14 @@ const routes = [
 		meta: {
 			background: "https://sotapstatic-1253679544.cos.ap-hongkong.myqcloud.com/img/2020-08-03_21.27.27.jpg"
 		}
+	},
+	{
+		path: "/contact",
+		name: "Contact",
+		component: () => import("@/views/Contact.vue"),
+		meta: {
+			background: "https://sotapstatic-1253679544.cos.ap-hongkong.myqcloud.com/img/2020-08-03_21.28.01.jpg"
+		}
 	}
 ];
 
