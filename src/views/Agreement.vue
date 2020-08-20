@@ -34,7 +34,6 @@
 <style lang="less" scoped>
 .agreement {
     text-align: left;
-    max-width: 1024px;
     padding-bottom: 48px;
     padding-top: 56px;
 }

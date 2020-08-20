@@ -150,4 +150,8 @@ export default Vue.extend({
 .special:hover {
 	.common-button-hover;
 }
+
+.inner-content {
+	max-width: 1024px;
+}
 </style>
