@@ -1,5 +1,5 @@
 <template>
-	<div class="nav-bar">
+	<div class="nav-bar" :style="isFirefox() ? 'background: rgba(0,0,0,.7);' : 'backdrop-filter: blur(5px);'">
 		<div class="nav-logo" @click="$router.push({name: 'Home'})">
 			<img class="nav-logo-image" src="@/assets/logo.svg" draggable="false" width="32" />
 			<span class="nav-logo-text">SoTap <span class="nav-logo-text-variant">Dev</span></span>
@@ -52,6 +52,11 @@ export default Vue.extend({
 				this.showContent = false;
 			}
 		};
+	},
+	methods: {
+		isFirefox() {
+			return window.navigator.userAgent.indexOf("Firefox") != -1;
+		}
 	}
 });
 </script>
@@ -62,8 +67,6 @@ export default Vue.extend({
 	top: 0;
 	width: 100%;
 	padding: 16px;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
 	z-index: 999;
 
 	@media screen and (min-width: 1024px) {
