@@ -21,6 +21,12 @@ export default Vue.extend({
 			resources: {
 				images: [
 					{
+						name: "Logo 图形",
+						path: "resources/art/logo-1000x1000-transparent.png",
+						resolution: "1000*1000",
+						transparent: true
+					},
+					{
 						name: "带字 Logo 1",
 						path: "resources/art/logo-1050x350-transparent.png",
 						resolution: "1050*350",
